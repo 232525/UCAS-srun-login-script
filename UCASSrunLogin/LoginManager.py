@@ -13,17 +13,18 @@ header={
 	'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36'
 }
 
-		
+
 class LoginManager:
 	def __init__(self,
-		url_login_page = "http://10.0.0.55/srun_portal_pc?ac_id=8&theme=bit",
-		url_get_challenge_api = "http://10.0.0.55/cgi-bin/get_challenge",
-		url_login_api = "http://10.0.0.55/cgi-bin/srun_portal",
+		login_ip = "http://124.16.81.61/",
 		n = "200",
 		vtype = "1",
 		acid = "1",
 		enc = "srun_bx1"
 	):
+		url_login_page = login_ip + "srun_portal_pc?ac_id=1&theme=pro"
+		url_get_challenge_api = login_ip + "cgi-bin/get_challenge"
+		url_login_api = login_ip + "cgi-bin/srun_portal"
 		# urls
 		self.url_login_page = url_login_page
 		self.url_get_challenge_api = url_get_challenge_api
@@ -89,7 +90,8 @@ class LoginManager:
 		errorinfo = "Failed to resolve IP"
 	)
 	def _resolve_ip_from_login_page(self):
-		self.ip = re.search('id="user_ip" value="(.*?)"', self._page_response.text).group(1)
+		# self.ip = re.search('id="user_ip" value="(.*?)"', self._page_response.text).group(1)
+		self.ip = re.search('ip(.*):(.*)"(.*?)"', self._page_response.text).group(1)
 
 	@checkip
 	@infomanage(

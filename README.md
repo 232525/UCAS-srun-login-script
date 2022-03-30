@@ -1,3 +1,53 @@
+## 模拟浏览器点击实现 __Ubuntu__ 服务器连接国科大校园网UCAS
+基于[BIT-srun-login-script](https://github.com/coffeehat/BIT-srun-login-script)和[SrunClient](https://github.com/ice-tong/SrunClient)。
+
+## 方式一：通过requests库进行GET请求实现登陆
+基于[BIT-srun-login-script](https://github.com/coffeehat/BIT-srun-login-script)。
+```bash
+python login_UCAS.py
+```
+
+
+## 方式二：通过selenium模拟网页点击实现登陆
+### requirements
++ xvfb
++ python
++ pyvirtualdisplay
++ selenium
++ Chrome浏览器 & chromedriver (或者 FireFox浏览器 & geckodriver)
+
+### 环境安装
+```bash
+sudo apt-get install xvfb
+
+pip install pyvirtualdisplay
+pip install selenium
+```
+
+### 下载浏览器driver
+下载Chrome浏览器[chromedriver](https://chromedriver.storage.googleapis.com/index.html)或者FireFox浏览器[geckodriver](https://github.com/mozilla/geckodriver/releases)，解压并将其移动到`/usr/bin/`(Ubuntu)或者`/usr/local/bin/`(Mac)目录下:
+```bash
+# Ubuntu
+sudo mv chromedriver /usr/bin/
+sudo mv geckodriver /usr/bin/
+
+# Mac
+sudo mv chromedriver /usr/local/bin/
+sudo mv geckodriver /usr/local/bin/
+```
+
+### 运行
+```bash
+# Ubuntu服务器（命令行环境下，无显示）
+python login_UCAS_SimClick_ubuntu_server.py
+# Mac OS （Windows没测试）
+python login_UCAS_SimClick.py
+```
+
+___
+**_[BIT-srun-login-script](https://github.com/coffeehat/BIT-srun-login-script)原始README如下：_**
+___
+
 加密逻辑来自（目前404了）：https://coding.net/u/huxiaofan1223/p/jxnu_srun/git
 
 另有支持多平台（包括openwrt）的golang版本，请见：https://github.com/Mmx233/BitSrunLoginGo

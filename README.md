@@ -1,4 +1,4 @@
-## 模拟浏览器点击实现 __Ubuntu__ 服务器连接国科大校园网UCAS
+## __Ubuntu__ 服务器连接国科大校园网UCAS
 基于[BIT-srun-login-script](https://github.com/coffeehat/BIT-srun-login-script)和[SrunClient](https://github.com/ice-tong/SrunClient)。
 
 ## 方式一：通过requests库进行GET请求实现登陆
